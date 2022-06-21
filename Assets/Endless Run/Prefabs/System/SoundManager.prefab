@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &100000
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400000}
+  - 114: {fileID: 11400000}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &400000
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.15516901, y: -2.71745515, z: -.944043159}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b87f490e73f29407f80221805bc2311e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bgmSound: {fileID: 0}
+  sound_List:
+  - audioClip: {fileID: 8300000, guid: 12474229820cbe8448cceb19b389ef6c, type: 3}
+    soundName: GetCoin
+  - audioClip: {fileID: 8300000, guid: 0b8e5e4a980f4b346b4b8cd779d594b1, type: 3}
+    soundName: Jump
+  - audioClip: {fileID: 8300000, guid: b85252a5ce90d434db473a080229977c, type: 3}
+    soundName: HitOBJ
+  - audioClip: {fileID: 8300000, guid: b751339e59a04c746bda3004afc216c1, type: 3}
+    soundName: GetItem
+  - audioClip: {fileID: 8300000, guid: 0b8e5e4a980f4b346b4b8cd779d594b1, type: 3}
+    soundName: Step
+  - audioClip: {fileID: 8300000, guid: 0b8e5e4a980f4b346b4b8cd779d594b1, type: 3}
+    soundName: Roll
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 100000}
+  m_IsPrefabParent: 1

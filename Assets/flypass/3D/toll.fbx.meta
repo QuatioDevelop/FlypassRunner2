@@ -1,0 +1,278 @@
+fileFormatVersion: 2
+guid: b3956629e20e0654b8de369797d1b0a0
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: cadnav.com
+    100002: Object004
+    100004: Object006
+    100006: Object007
+    100008: Object008
+    100010: Object018
+    100012: Object019
+    100014: Object020
+    100016: Object021
+    100018: Object022
+    100020: Object023
+    100022: Object024
+    100024: Object032
+    100026: Object033
+    100028: Object040
+    100030: Object041
+    100032: Object042
+    100034: Object054
+    100036: Object055
+    100038: Object056
+    100040: Object058
+    100042: Object066
+    100044: Object067
+    100046: Object068
+    100048: Object088
+    100050: Object089
+    100052: Rectangle03
+    100054: Rectangle07
+    100056: Rectangle5063
+    100058: //RootNode
+    400000: cadnav.com
+    400002: Object004
+    400004: Object006
+    400006: Object007
+    400008: Object008
+    400010: Object018
+    400012: Object019
+    400014: Object020
+    400016: Object021
+    400018: Object022
+    400020: Object023
+    400022: Object024
+    400024: Object032
+    400026: Object033
+    400028: Object040
+    400030: Object041
+    400032: Object042
+    400034: Object054
+    400036: Object055
+    400038: Object056
+    400040: Object058
+    400042: Object066
+    400044: Object067
+    400046: Object068
+    400048: Object088
+    400050: Object089
+    400052: Rectangle03
+    400054: Rectangle07
+    400056: Rectangle5063
+    400058: //RootNode
+    2100000: "\u6536\u8D39\u7AD9\u9876"
+    2100002: "\u6536\u8D39\u7AD9\u6DF7\u6CE5\u571F"
+    2100004: "\u58A9\u5B50"
+    2100006: "\u6536\u8D39\u7AD9\u5C4B\u9876"
+    2100008: "\u6536\u8D39\u7AD9\u680F\u6746\u58A9\u5B50"
+    2100010: "\u6536\u8D39\u8F66\u7AD9\u73BB\u7483"
+    2100012: "\u6536\u8D39\u7AD9\u7A97\u6846"
+    2100014: "\u6536\u8D39\u7AD9\u6746\u5B50"
+    2300000: Object004
+    2300002: Object006
+    2300004: Object007
+    2300006: Object008
+    2300008: Object018
+    2300010: Object019
+    2300012: Object020
+    2300014: Object021
+    2300016: Object022
+    2300018: Object023
+    2300020: Object024
+    2300022: Object032
+    2300024: Object033
+    2300026: Object040
+    2300028: Object041
+    2300030: Object042
+    2300032: Object054
+    2300034: Object055
+    2300036: Object056
+    2300038: Object058
+    2300040: Object066
+    2300042: Object067
+    2300044: Object068
+    2300046: Object088
+    2300048: Object089
+    2300050: Rectangle03
+    3300000: Object004
+    3300002: Object006
+    3300004: Object007
+    3300006: Object008
+    3300008: Object018
+    3300010: Object019
+    3300012: Object020
+    3300014: Object021
+    3300016: Object022
+    3300018: Object023
+    3300020: Object024
+    3300022: Object032
+    3300024: Object033
+    3300026: Object040
+    3300028: Object041
+    3300030: Object042
+    3300032: Object054
+    3300034: Object055
+    3300036: Object056
+    3300038: Object058
+    3300040: Object066
+    3300042: Object067
+    3300044: Object068
+    3300046: Object088
+    3300048: Object089
+    3300050: Rectangle03
+    4300000: Object004
+    4300002: Object006
+    4300004: Object007
+    4300006: Object008
+    4300008: Object018
+    4300010: Rectangle03
+    4300012: Object019
+    4300014: Object020
+    4300016: Object021
+    4300018: Object022
+    4300020: Object023
+    4300022: Object024
+    4300024: Object032
+    4300026: Object033
+    4300028: Object040
+    4300030: Object041
+    4300032: Object042
+    4300034: Object054
+    4300036: Object055
+    4300038: Object056
+    4300040: Object058
+    4300042: Object066
+    4300044: Object067
+    4300046: Object068
+    4300048: Object088
+    4300050: Object089
+    7400000: cadnav.com|cadnav.com|Take 001|BaseLayer
+    7400002: cadnav.com|Line01|Take 001|BaseLayer
+    7400004: cadnav.com|Object02|Take 001|BaseLayer
+    7400006: cadnav.com|Rectangle02|Take 001|BaseLayer
+    7400008: cadnav.com|Rectangle03|Take 001|BaseLayer
+    7400010: cadnav.com|Rectangle06|Take 001|BaseLayer
+    7400012: cadnav.com|Rectangle07|Take 001|BaseLayer
+    7400014: cadnav.com|Rectangle08|Take 001|BaseLayer
+    7400016: cadnav.com|Rectangle21|Take 001|BaseLayer
+    7400018: cadnav.com|Rectangle5063|Take 001|BaseLayer
+    7400020: Rectangle07|cadnav.com|Take 001|BaseLayer
+    7400022: Rectangle07|Line01|Take 001|BaseLayer
+    7400024: Rectangle07|Object02|Take 001|BaseLayer
+    7400026: Rectangle07|Rectangle02|Take 001|BaseLayer
+    7400028: Rectangle07|Rectangle03|Take 001|BaseLayer
+    7400030: Rectangle07|Rectangle06|Take 001|BaseLayer
+    7400032: Rectangle07|Rectangle07|Take 001|BaseLayer
+    7400034: Rectangle07|Rectangle08|Take 001|BaseLayer
+    7400036: Rectangle07|Rectangle21|Take 001|BaseLayer
+    7400038: Rectangle07|Rectangle5063|Take 001|BaseLayer
+    7400040: Rectangle5063|cadnav.com|Take 001|BaseLayer
+    7400042: Rectangle5063|Line01|Take 001|BaseLayer
+    7400044: Rectangle5063|Object02|Take 001|BaseLayer
+    7400046: Rectangle5063|Rectangle02|Take 001|BaseLayer
+    7400048: Rectangle5063|Rectangle03|Take 001|BaseLayer
+    7400050: Rectangle5063|Rectangle06|Take 001|BaseLayer
+    7400052: Rectangle5063|Rectangle07|Take 001|BaseLayer
+    7400054: Rectangle5063|Rectangle08|Take 001|BaseLayer
+    7400056: Rectangle5063|Rectangle21|Take 001|BaseLayer
+    7400058: Rectangle5063|Rectangle5063|Take 001|BaseLayer
+    7400060: Rectangle03|cadnav.com|Take 001|BaseLayer
+    7400062: Rectangle03|Line01|Take 001|BaseLayer
+    7400064: Rectangle03|Object02|Take 001|BaseLayer
+    7400066: Rectangle03|Rectangle02|Take 001|BaseLayer
+    7400068: Rectangle03|Rectangle03|Take 001|BaseLayer
+    7400070: Rectangle03|Rectangle06|Take 001|BaseLayer
+    7400072: Rectangle03|Rectangle07|Take 001|BaseLayer
+    7400074: Rectangle03|Rectangle08|Take 001|BaseLayer
+    7400076: Rectangle03|Rectangle21|Take 001|BaseLayer
+    7400078: Rectangle03|Rectangle5063|Take 001|BaseLayer
+    9500000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
