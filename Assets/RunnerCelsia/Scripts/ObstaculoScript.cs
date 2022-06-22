@@ -6,15 +6,19 @@ public class ObstaculoScript : MonoBehaviour
 {
     CanvasController canvasController;
     ParticleSystem particulaCarga;
+    ParticleSystem particulaDam;
     AudioSource audioCarga;
     AudioSource efect;
+    AudioSource efectD;
 
     // Start is called before the first frame update
     void Start()
     {
         canvasController = GameObject.FindObjectOfType<CanvasController>();
         particulaCarga = GameObject.FindGameObjectWithTag("ParticulaCarga").GetComponent<ParticleSystem>();
+        particulaDam = GameObject.FindGameObjectWithTag("ParticulaDamage").GetComponent<ParticleSystem>();
         efect = GameObject.FindGameObjectWithTag("EfectSound").GetComponent<AudioSource>();
+        efectD = GameObject.FindGameObjectWithTag("DamageSound").GetComponent<AudioSource>();
         audioCarga = gameObject.GetComponentInChildren<AudioSource>();
 
         for (int i = 0; i < (tollgenerate.cantidad * 5); i++)
@@ -52,6 +56,8 @@ public class ObstaculoScript : MonoBehaviour
                 CanvasController.vida -= 1;
                 gameObject.SetActive(false);
                 Invoke("ActivarObjeto", 2);
+                particulaDam.Play();
+                efectD.Play();
 
             }
 

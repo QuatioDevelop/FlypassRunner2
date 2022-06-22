@@ -9,7 +9,7 @@ public class GameController : MonoBehaviour
     public CameraFollow cameraFol1;	//camera
     public CameraFollow cameraFol2;	//camera
     public float speedAddEveryDistance = 300;
-    public float speedAdd = 0.5f;
+    public float speedAdd = 2f;
     public float speedMax = 20;
     public GameObject playerPref1;
     public GameObject playerPref2;
