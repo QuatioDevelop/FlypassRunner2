@@ -62,6 +62,12 @@ public class MovPlayer : MonoBehaviour
         }
 
         if (Input.GetKey(KeyCode.R))
+        {
+          SceneManager.LoadScene(1);
+        }
+        if (Input.GetButtonDown("Fire1") && Input.GetButtonDown("Fire2"))
+        {
             SceneManager.LoadScene(1);
+        }
     }
 }
