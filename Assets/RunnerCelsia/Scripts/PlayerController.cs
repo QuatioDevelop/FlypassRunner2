@@ -72,6 +72,7 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         speedX = 6;
+        sensibilidad = CanvasOpciones.sens;
     }
 
     void Update()
