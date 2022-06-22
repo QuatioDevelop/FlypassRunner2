@@ -19,6 +19,7 @@ public class MovPlayer : MonoBehaviour
 
 
     public static bool stop = true;
+    public static bool countdownover = false;
 
     public static float speed = 5;
 
@@ -36,7 +37,7 @@ public class MovPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (patternSystem.loadingComplete)
+        if (patternSystem.loadingComplete && countdownover)
         {
             
             if (stop)
@@ -62,6 +63,9 @@ public class MovPlayer : MonoBehaviour
         }
 
         if (Input.GetKey(KeyCode.R))
+        {
+            MovPlayer.countdownover = false;
             SceneManager.LoadScene(1);
+        }
     }
 }

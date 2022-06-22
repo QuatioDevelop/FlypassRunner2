@@ -26,6 +26,11 @@ public class CanvasController : MonoBehaviour
     public float tiempoLimite;
     GameObject[] player;
 
+    public int countdown = 3;
+    public bool onecall = false;
+    public TextMeshProUGUI countdowntext;
+    public AudioSource ttogo;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,62 +45,90 @@ public class CanvasController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void  FixedUpdate()
     {
         if (patternSystem.loadingComplete)
         {
-            tiempo -= Time.deltaTime;
-
-            textoTiempo.text = "" + tiempo.ToString("00");
-
-            //energia -= Time.deltaTime;
-
-            //sliderEnergia.value = energia;
-            if (MovPlayer.stop == true)
+            if(MovPlayer.countdownover)
             {
-                Score += Time.deltaTime;
-            }
+                tiempo -= Time.deltaTime;
 
-            textoEnergia.text = sliderEnergia.value.ToString("00") + "%";
-            textoScore.text = Score.ToString("00");
-            textoVida.text = vida.ToString("00");
+                textoTiempo.text = "" + tiempo.ToString("00");
 
-            if (energia <= 0)
-            {
-                energia = 0;
-                panelSinEnergia.SetActive(true);
-                Invoke("Restart", 2);
-                MovPlayer.speed = 0;
-                PlayerController.speedX = 0;
-            }
+                //energia -= Time.deltaTime;
 
-            if (vida <= 0)
-            {
-                panelGano.SetActive(true);
-                Invoke("Restart", 2);
-                MovPlayer.speed = 0;
-                PlayerController.speedX = 0;
-            }
+                //sliderEnergia.value = energia;
+                if (MovPlayer.stop == true)
+                {
+                    Score += Time.deltaTime;
+                }
+
+                textoEnergia.text = sliderEnergia.value.ToString("00") + "%";
+                textoScore.text = Score.ToString("00");
+                textoVida.text = vida.ToString("00");
+
+                if (energia <= 0)
+                {
+                    energia = 0;
+                    panelSinEnergia.SetActive(true);
+                    Invoke("Restart", 2);
+                    MovPlayer.speed = 0;
+                    PlayerController.speedX = 0;
+                }
+
+                if (vida <= 0)
+                {
+                    panelGano.SetActive(true);
+                    Invoke("Restart", 2);
+                    MovPlayer.speed = 0;
+                    PlayerController.speedX = 0;
+                }
 
                 /*if (energia >= 100)
                     energia = 100;*/
 
-            if (tiempo <= 0)
-            {
-                panelGano.SetActive(true);
-                tiempo = 0;
-                Invoke("Restart", 2);
-                MovPlayer.speed = 0;
-                PlayerController.speedX = 0;                
+                if (tiempo <= 0)
+                {
+                    panelGano.SetActive(true);
+                    tiempo = 0;
+                    Invoke("Restart", 2);
+                    MovPlayer.speed = 0;
+                    PlayerController.speedX = 0;
+                }
             }
+            else
+            {
+                if (!onecall)
+                {
+                    StartCoroutine(Countdowncorrutine());
+                    ttogo.Play();
+                    onecall = true;
+                }
+            }
+        }
+    }
 
+    public IEnumerator Countdowncorrutine()
+    {
+        countdowntext.text = countdown.ToString();
+        yield return new WaitForSeconds(1);
+        countdown -= 1;
+
+        if (countdown <= 0)
+        {
+            MovPlayer.countdownover = true;
+            countdowntext.gameObject.SetActive(false);
+        }
+        else
+        {
+            StartCoroutine(Countdowncorrutine());
         }
     }
 
     public void Restart()
     {
         SceneManager.LoadScene(1);
-
+        MovPlayer.countdownover = false;
     }
 
     public void Salir()
