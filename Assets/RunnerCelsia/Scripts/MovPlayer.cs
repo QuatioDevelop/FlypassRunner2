@@ -55,12 +55,12 @@ public class MovPlayer : MonoBehaviour
             print(speed + "Velocity");
             m_Rigidbody.velocity = new Vector3(0, 0, speed);
             cam.transform.position = new Vector3(cam.position.x,cam.position.y, player.transform.position.z - 2.57f);
-            rot.z += speed;
+            rot.z += (speed*6);
             rot.y = 90;
             if (wheel1) wheel1.eulerAngles    = rot;
-            if (wheel2) wheel2.eulerAngles    = rot;
+            if (wheel2) wheel2.eulerAngles    = -rot;
             if (wheel3) wheel3.eulerAngles    = rot;
-            if (wheel4) wheel4.eulerAngles = rot;
+            if (wheel4) wheel4.eulerAngles = -rot;
         }
 
         if (Input.GetKey(KeyCode.R))
