@@ -52,7 +52,7 @@ public class CanvasOpciones : MonoBehaviour
         PlayerPrefs.SetInt("tiempo", tiempo);
         PlayerPrefs.SetInt("vida", live);
         PlayerPrefs.SetInt("sen", sens);
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(3);
     }
 
     public void Salir()
