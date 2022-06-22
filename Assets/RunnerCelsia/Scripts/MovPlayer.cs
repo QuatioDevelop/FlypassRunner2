@@ -67,5 +67,9 @@ public class MovPlayer : MonoBehaviour
             MovPlayer.countdownover = false;
             SceneManager.LoadScene(1);
         }
+        if (Input.GetButtonDown("Fire1") && Input.GetButtonDown("Fire2"))
+        {
+            SceneManager.LoadScene(1);
+        }
     }
 }
