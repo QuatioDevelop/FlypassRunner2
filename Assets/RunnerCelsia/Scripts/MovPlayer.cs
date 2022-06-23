@@ -43,19 +43,19 @@ public class MovPlayer : MonoBehaviour
     {
         if (patternSystem.loadingComplete && countdownover)
         {
-            Loopaudiocar();
+            //Loopaudiocar();
             if (stop)
             {
                 if (speed < 10)
                 {
                     speed += (Time.deltaTime * 0.2f);
 
-                    if (speed <= 5)
+                    /*if (speed <= 5)
                     {
                         arranque.Stop();
                         loopcar.Stop();
                         loopaudiocar = false;
-                    }
+                    }*/
                 }
                 else
                 {
@@ -84,7 +84,7 @@ public class MovPlayer : MonoBehaviour
         }
     }
 
-    public void Loopaudiocar()
+    /*public void Loopaudiocar()
     {
         if (!loopaudiocar)
         {
@@ -93,12 +93,12 @@ public class MovPlayer : MonoBehaviour
             StartCoroutine(Loopaudio());
             loopaudiocar = true;
         }
-    }
+    }*/
 
-    public IEnumerator Loopaudio()
+    /*public IEnumerator Loopaudio()
     {
         arranque.Play();
         yield return new WaitForSeconds(9);
         loopcar.Play();
-    }
+    }*/
 }
