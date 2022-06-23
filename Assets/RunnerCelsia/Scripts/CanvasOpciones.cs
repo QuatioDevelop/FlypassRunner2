@@ -31,7 +31,10 @@ public class CanvasOpciones : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Return))
             Comenzar();
 
-        sensText.text = Sen.value.ToString("0.00");
+        if (Input.GetKeyDown(KeyCode.F1))
+            SceneManager.LoadScene(5);
+
+            sensText.text = Sen.value.ToString("0.00");
         /*foreach (KeyCode kcode in System.Enum.GetValues(typeof(KeyCode)))
         {
             if (Input.GetKeyDown(kcode))

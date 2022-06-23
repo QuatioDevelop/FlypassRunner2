@@ -39,7 +39,7 @@ public class CanvasOpciones2 : MonoBehaviour
     public void Comenzar()
     {
         MaxVel = int.Parse(MaxVelText.text);
-        VarVel = int.Parse(VarVelText.text);
+        VarVel = float.Parse(VarVelText.text);
         SceneManager.LoadScene(0);
     }
 
