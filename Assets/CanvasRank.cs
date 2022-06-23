@@ -7,9 +7,6 @@ using TMPro;
 
 public class CanvasRank : MonoBehaviour
 {
-    public TextMeshProUGUI textoTiempo;
-    public TextMeshProUGUI textoPuntaje;
-    public TextMeshProUGUI textoVida;
 
     public TextMeshProUGUI n1;
     public TextMeshProUGUI n2;
