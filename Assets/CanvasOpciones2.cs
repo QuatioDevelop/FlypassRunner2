@@ -18,8 +18,8 @@ public class CanvasOpciones2 : MonoBehaviour
     void Start()
     {
         //tiempoLimite = gameObject.GetComponentInChildren<TMP_InputField>();
-        MaxVelText.text = MaxVel.ToString();
-        VarVelText.text = VarVel.ToString();
+        MaxVelText.text = PlayerPrefs.GetInt("MaxVel", 50).ToString();
+        VarVelText.text = PlayerPrefs.GetFloat("VarVel", 0.2f).ToString();
     }
 
     private void Update()
@@ -40,6 +40,8 @@ public class CanvasOpciones2 : MonoBehaviour
     {
         MaxVel = int.Parse(MaxVelText.text);
         VarVel = float.Parse(VarVelText.text);
+        PlayerPrefs.SetInt("MaxVel", MaxVel);
+        PlayerPrefs.SetFloat("VarVel", VarVel);
         SceneManager.LoadScene(0);
     }
 

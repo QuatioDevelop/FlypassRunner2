@@ -23,7 +23,7 @@ public class CanvasOpciones : MonoBehaviour
 
         tiempoLimite.text = PlayerPrefs.GetInt("tiempo", 180).ToString();
         liveMax.text = PlayerPrefs.GetInt("vida", 5).ToString();
-        Sen.value = PlayerPrefs.GetFloat("Sen");
+        Sen.value = PlayerPrefs.GetFloat("sen",1);
     }
 
     private void Update()
@@ -56,6 +56,8 @@ public class CanvasOpciones : MonoBehaviour
         PlayerPrefs.SetInt("tiempo", tiempo);
         PlayerPrefs.SetInt("vida", live);
         PlayerPrefs.SetFloat("sen", Sen.value);
+        CanvasOpciones2.MaxVel = PlayerPrefs.GetInt("MaxVel", 50);
+        CanvasOpciones2.VarVel = PlayerPrefs.GetFloat("VarVel", 0.2f);
         sens = Sen.value;
         SceneManager.LoadScene(3);
     }
