@@ -46,7 +46,7 @@ public class MovPlayer : MonoBehaviour
             //Loopaudiocar();
             if (stop)
             {
-                if (speed < 10)
+                if (speed < 50)
                 {
                     speed += (Time.deltaTime * 0.2f);
 

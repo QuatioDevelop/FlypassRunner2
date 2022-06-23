@@ -461,7 +461,7 @@ public class PatternSystem : MonoBehaviour
             queneFloor[0].floorClass.floor_Slot_Left[i] = false;
             queneFloor[0].floorClass.floor_Slot_Right[i] = false;
             i++;
-            yield return 0;
+            //yield return 0;
         }
         i = 0;
         while (i < queneFloor[0].floorItemSlotClass.floor_Slot_Left.Length)
@@ -469,7 +469,7 @@ public class PatternSystem : MonoBehaviour
             queneFloor[0].floorItemSlotClass.floor_Slot_Left[i] = false;
             queneFloor[0].floorItemSlotClass.floor_Slot_Right[i] = false;
             i++;
-            yield return 0;
+            //yield return 0;
         }
         i = 0;
         int itemCount = queneFloor[0].getItem.Count;
@@ -481,7 +481,7 @@ public class PatternSystem : MonoBehaviour
             ReturnItemWithType(queneFloor[0].getItem[0]);
             queneFloor[0].getItem.RemoveRange(0, 1);
             i++;
-            yield return 0;
+            //yield return 0;
         }
         i = 0;
         int buildingCount = queneFloor[0].getBuilding.Count;
@@ -492,7 +492,7 @@ public class PatternSystem : MonoBehaviour
             queneFloor[0].getBuilding[0].buildingActive = false;
             queneFloor[0].getBuilding.RemoveRange(0, 1);
             i++;
-            yield return 0;
+            //yield return 0;
         }
 
         StartCoroutine(AddBuilding());
@@ -523,10 +523,10 @@ public class PatternSystem : MonoBehaviour
             }
             i++;
         }
-        yield return 0;
+        //yield return 0;
         i = 0;
         CheckTypeItemFormAdd(qFloor, i);
-        yield return 0;
+        //yield return 0;
         qFloor.floorObj.transform.position = posFloorLast;
         posFloorLast.z += nextPosFloor;
         queneFloor.Add(qFloor);
