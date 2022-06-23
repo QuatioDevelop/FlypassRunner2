@@ -17,6 +17,9 @@ public class MovPlayer : MonoBehaviour
     PostProcessProfile post;
     GameObject player;
 
+    public AudioSource arranque;
+    public AudioSource loopcar;
+    bool loopaudiocar = false;
 
     public static bool stop = true;
     public static bool countdownover = false;
@@ -40,19 +43,26 @@ public class MovPlayer : MonoBehaviour
     {
         if (patternSystem.loadingComplete && countdownover)
         {
-            
+            Loopaudiocar();
             if (stop)
             {
                 if (speed < 10)
                 {
                     speed += (Time.deltaTime * 0.2f);
+
+                    if (speed <= 5)
+                    {
+                        arranque.Stop();
+                        loopcar.Stop();
+                        loopaudiocar = false;
+                    }
                 }
                 else
                 {
                     speed = 10;
                 }
             }
-            print(speed + "Velocity");
+            //print(speed + "Velocity");
             m_Rigidbody.velocity = new Vector3(0, 0, speed);
             cam.transform.position = new Vector3(cam.position.x,cam.position.y, player.transform.position.z - 2.57f);
             rot.z += (speed*6);
@@ -72,5 +82,23 @@ public class MovPlayer : MonoBehaviour
         {
             SceneManager.LoadScene(1);
         }
+    }
+
+    public void Loopaudiocar()
+    {
+        if (!loopaudiocar)
+        {
+            arranque.Stop();
+            loopcar.Stop();
+            StartCoroutine(Loopaudio());
+            loopaudiocar = true;
+        }
+    }
+
+    public IEnumerator Loopaudio()
+    {
+        arranque.Play();
+        yield return new WaitForSeconds(9);
+        loopcar.Play();
     }
 }
