@@ -47,5 +47,10 @@ public class CanvasOpciones2 : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void Clearplayerprefs()
+    {
+        PlayerPrefs.DeleteAll();
+    }
 }
 
