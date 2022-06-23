@@ -11,6 +11,21 @@ public class CanvasMenu : MonoBehaviour
     public TextMeshProUGUI textoPuntaje;
     public TextMeshProUGUI textoVida;
 
+    public TextMeshProUGUI n1;
+    public TextMeshProUGUI n2;
+    public TextMeshProUGUI n3;
+    public TextMeshProUGUI n4;
+    public TextMeshProUGUI n5;
+
+    //public List<string> stringscores = new List<string>();
+    //public List<float> scores = new List<float>();
+    //public List<int> index = new List<int>();
+
+    //public string[] stringscores;
+    public float[] scores;
+    public float[] sortscores;
+    //public int[] index;
+
     int countRecords;
     bool usernotexist = true;
 
@@ -19,10 +34,6 @@ public class CanvasMenu : MonoBehaviour
         textoTiempo.text = "Tiempo: " + (CanvasController.tiempo).ToString("00");
         textoPuntaje.text = "Puntaje: " + (CanvasController.Score).ToString("00");
         textoVida.text = "Vidas: " + (CanvasController.vida).ToString("00");
-
-        Debug.Log("Nombre:" + CanvasForm.tNombre.ToString());
-        Debug.Log("Cedula:" + CanvasForm.tCedula.ToString());
-        Debug.Log("Correo:" + CanvasForm.tCorreo.ToString());
 
         if (!PlayerPrefs.HasKey("count"))
         {
@@ -78,12 +89,50 @@ public class CanvasMenu : MonoBehaviour
                 Debug.Log(PlayerPrefs.GetString("Nombre" + i) + " - " + PlayerPrefs.GetString("Cedula" + i) + " - " + PlayerPrefs.GetFloat("Score" + i));
             }
         }
+
+        Showranquing();
     }
 
     private void Update()
     {
         if(Input.GetButtonDown("Fire1"))
             Comenzar();
+    }
+
+    public void Showranquing()
+    {
+        countRecords = PlayerPrefs.GetInt("count");
+        scores = new float[countRecords];
+        sortscores = new float[countRecords];
+
+        for (int i = 1; i <= countRecords; i++)
+        {
+            scores[i-1] = PlayerPrefs.GetFloat("Score" + i.ToString());
+        }
+
+        for (int i = 0; i < scores.Length; i++)
+        {
+            float maxValue = Mathf.Max(scores);
+
+            sortscores[i] = maxValue;
+
+            for (int s = 0; s < scores.Length; s++)
+            {
+                if (scores[s] == maxValue)
+                {
+                    scores[s] = 0;
+                }
+            }
+        }
+
+
+        //n1.text += " " + PlayerPrefs.GetString("Nombre1") + " - " + PlayerPrefs.GetString("Cedula1") + " - " + PlayerPrefs.GetFloat("Score1").ToString("00");
+        //n2.text += " " + PlayerPrefs.GetString("Nombre2") + " - " + PlayerPrefs.GetString("Cedula2") + " - " + PlayerPrefs.GetFloat("Score2").ToString("00");
+        //n3.text += " " + PlayerPrefs.GetString("Nombre3") + " - " + PlayerPrefs.GetString("Cedula3") + " - " + PlayerPrefs.GetFloat("Score3").ToString("00");
+        //n4.text += " " + PlayerPrefs.GetString("Nombre4") + " - " + PlayerPrefs.GetString("Cedula4") + " - " + PlayerPrefs.GetFloat("Score4").ToString("00");
+        //n5.text += " " + PlayerPrefs.GetString("Nombre5") + " - " + PlayerPrefs.GetString("Cedula5") + " - " + PlayerPrefs.GetFloat("Score5").ToString("00");
+
+
     }
 
     public void Comenzar()
