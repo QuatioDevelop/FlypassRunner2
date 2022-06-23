@@ -22,7 +22,7 @@ public class tollgenerate : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        cantidad = CanvasOpciones.tiempo / 5;
+        cantidad = CanvasOpciones.tiempo / CanvasOpciones2.Div;
         for (int i = 0; i < cantidad; i++)
         {
             select = Random.Range(0, (toll.Length));
@@ -30,7 +30,7 @@ public class tollgenerate : MonoBehaviour
             tollp.transform.position = new Vector3(ubi.x, ubi.y, ubi.z * (i + 1));
         }
 
-        for (int i = 0; i < ((cantidad * 5) * 2); i++)
+        for (int i = 0; i < ((cantidad * CanvasOpciones2.Div) * 2); i++)
         {
 
             select2 = (int)Random.Range(0, 2);
@@ -51,7 +51,7 @@ public class tollgenerate : MonoBehaviour
             }
         }
 
-        for (int i = 0; i < (cantidad * 5); i++)
+        for (int i = 0; i < (cantidad * CanvasOpciones2.Div); i++)
         {
 
             select3 = (int)Random.Range(0, 3);

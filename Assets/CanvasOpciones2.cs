@@ -11,8 +11,11 @@ public class CanvasOpciones2 : MonoBehaviour
    
     public TMP_InputField VarVelText;
 
+    public TMP_InputField DivText;
+
     public static int MaxVel = 50;
     public static float VarVel = 0.2f;
+    public static int  Div = 5;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +23,8 @@ public class CanvasOpciones2 : MonoBehaviour
         //tiempoLimite = gameObject.GetComponentInChildren<TMP_InputField>();
         MaxVelText.text = PlayerPrefs.GetInt("MaxVel", 50).ToString();
         VarVelText.text = PlayerPrefs.GetFloat("VarVel", 0.2f).ToString();
+        DivText.text = PlayerPrefs.GetInt("Div", 5).ToString();
+
     }
 
     private void Update()
@@ -40,7 +45,9 @@ public class CanvasOpciones2 : MonoBehaviour
     {
         MaxVel = int.Parse(MaxVelText.text);
         VarVel = float.Parse(VarVelText.text);
+        Div = int.Parse(DivText.text);
         PlayerPrefs.SetInt("MaxVel", MaxVel);
+        PlayerPrefs.SetInt("Div", Div);
         PlayerPrefs.SetFloat("VarVel", VarVel);
         SceneManager.LoadScene(0);
     }
