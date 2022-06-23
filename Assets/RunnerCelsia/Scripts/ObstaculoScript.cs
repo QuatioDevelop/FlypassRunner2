@@ -57,7 +57,7 @@ public class ObstaculoScript : MonoBehaviour
                 gameObject.SetActive(false);
                 Invoke("ActivarObjeto", 2);
                 particulaDam.Play();
-                efectD.Play();
+                //efectD.Play();
 
             }
 
