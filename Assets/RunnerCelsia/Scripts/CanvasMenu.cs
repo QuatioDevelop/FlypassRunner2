@@ -128,7 +128,7 @@ public class CanvasMenu : MonoBehaviour
         for (int i = 1; i <= countRecords; i++)
         {
             scores[i-1] = PlayerPrefs.GetFloat("Score" + i.ToString());
-            stringscores[i-1] = PlayerPrefs.GetFloat("Score" + i.ToString()).ToString("00");
+            stringscores[i-1] = PlayerPrefs.GetFloat("Score" + i.ToString()).ToString();
             stringnames[i-1] = " " + PlayerPrefs.GetString("Nombre" + i.ToString());
         }
 
