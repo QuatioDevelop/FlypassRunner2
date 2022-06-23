@@ -202,7 +202,18 @@ public class CanvasMenu : MonoBehaviour
                 n42.text += sortstringscores[3];
                 n52.text += sortstringscores[4];
                 break;
+
             default:
+                n1.text += sortstringnames[0];
+                n2.text += sortstringnames[1];
+                n3.text += sortstringnames[2];
+                n4.text += sortstringnames[3];
+                n5.text += sortstringnames[4];
+                n12.text += sortstringscores[0];
+                n22.text += sortstringscores[1];
+                n32.text += sortstringscores[2];
+                n42.text += sortstringscores[3];
+                n52.text += sortstringscores[4];
                 break;
         }
         //n1.text += sortstringnames[0];

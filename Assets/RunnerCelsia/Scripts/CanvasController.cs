@@ -42,6 +42,8 @@ public class CanvasController : MonoBehaviour
         vida = CanvasOpciones.live;
         tiempo = CanvasOpciones.tiempo;
         player = GameObject.FindGameObjectsWithTag("Player");
+
+        MovPlayer.countdownover = false;
     }
 
     // Update is called once per frame
