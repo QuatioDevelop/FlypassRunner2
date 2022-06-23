@@ -39,6 +39,11 @@ public class CanvasOpciones : MonoBehaviour
                 Debug.Log("KeyCode down: " + kcode);
             }
         }*/
+
+        if (Input.GetKeyDown(KeyCode.R) && Input.GetKeyDown(KeyCode.A))
+        {
+            SceneManager.LoadScene(4);
+        }
     }
 
     public void Comenzar()
