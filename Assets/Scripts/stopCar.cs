@@ -35,7 +35,7 @@ public class stopCar : MonoBehaviour
             }
             if (scoreN)
             {
-                CanvasController.Score -= 300;
+                CanvasController.Score -= 50;
             }
             if (critical)
             {
