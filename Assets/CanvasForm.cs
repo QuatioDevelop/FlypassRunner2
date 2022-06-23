@@ -16,6 +16,12 @@ public class CanvasForm : MonoBehaviour
     public static string tCedula;
     public static string tCorreo;
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.F1))
+            SceneManager.LoadScene(0);
+    }
+
     public void Comenzar()
     {
         if (nombre.text != "" && cedula.text != "" && correo.text != "")

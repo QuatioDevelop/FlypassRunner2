@@ -107,6 +107,9 @@ public class CanvasMenu : MonoBehaviour
     {
         if(Input.GetButtonDown("Fire1"))
             Comenzar();
+
+        if (Input.GetKeyDown(KeyCode.F1))
+            SceneManager.LoadScene(0);
     }
 
     public void Showranquing()
@@ -150,17 +153,69 @@ public class CanvasMenu : MonoBehaviour
             }
         }
 
-        n1.text += sortstringnames[0];
-        n2.text += sortstringnames[1];
-        n3.text += sortstringnames[2];
-        n4.text += sortstringnames[3];
-        n5.text += sortstringnames[4];
+        switch (sortstringnames.Length)
+        {
+            case 0:
+                break;
 
-        n12.text += sortstringscores[0];
-        n22.text += sortstringscores[1];
-        n32.text += sortstringscores[2];
-        n42.text += sortstringscores[3];
-        n52.text += sortstringscores[4];
+            case 1:
+                n1.text += sortstringnames[0];
+                n12.text += sortstringscores[0];
+                break;
+
+            case 2:
+                n1.text += sortstringnames[0];
+                n2.text += sortstringnames[1];
+                n12.text += sortstringscores[0];
+                n22.text += sortstringscores[1];
+                break;
+
+            case 3:
+                n1.text += sortstringnames[0];
+                n2.text += sortstringnames[1];
+                n3.text += sortstringnames[2];
+                n12.text += sortstringscores[0];
+                n22.text += sortstringscores[1];
+                n32.text += sortstringscores[2];
+                break;
+
+            case 4:
+                n1.text += sortstringnames[0];
+                n2.text += sortstringnames[1];
+                n3.text += sortstringnames[2];
+                n4.text += sortstringnames[3];
+                n12.text += sortstringscores[0];
+                n22.text += sortstringscores[1];
+                n32.text += sortstringscores[2];
+                n42.text += sortstringscores[3];
+                break;
+
+            case 5:
+                n1.text += sortstringnames[0];
+                n2.text += sortstringnames[1];
+                n3.text += sortstringnames[2];
+                n4.text += sortstringnames[3];
+                n5.text += sortstringnames[4];
+                n12.text += sortstringscores[0];
+                n22.text += sortstringscores[1];
+                n32.text += sortstringscores[2];
+                n42.text += sortstringscores[3];
+                n52.text += sortstringscores[4];
+                break;
+            default:
+                break;
+        }
+        //n1.text += sortstringnames[0];
+        //n2.text += sortstringnames[1];
+        //n3.text += sortstringnames[2];
+        //n4.text += sortstringnames[3];
+        //n5.text += sortstringnames[4];
+        //
+        //n12.text += sortstringscores[0];
+        //n22.text += sortstringscores[1];
+        //n32.text += sortstringscores[2];
+        //n42.text += sortstringscores[3];
+        //n52.text += sortstringscores[4];
         
     }
 
