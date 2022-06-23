@@ -36,6 +36,9 @@ public class MovPlayer : MonoBehaviour
         speed = 5;
         stop = true;
         cam.transform.position = new Vector3(cam.position.x, cam.position.y, player.transform.position.z - 2.57f);
+        Debug.Log("La Velocidad Maxima es " + CanvasOpciones2.MaxVel);
+        Debug.Log("La Velocidad Varible es " + CanvasOpciones2.VarVel);
+
     }
 
     // Update is called once per frame
@@ -46,9 +49,9 @@ public class MovPlayer : MonoBehaviour
             //Loopaudiocar();
             if (stop)
             {
-                if (speed < 50)
+                if (speed < CanvasOpciones2.MaxVel)
                 {
-                    speed += (Time.deltaTime * 0.2f);
+                    speed += (Time.deltaTime * CanvasOpciones2.VarVel);
 
                     /*if (speed <= 5)
                     {
