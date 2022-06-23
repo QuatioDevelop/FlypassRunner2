@@ -43,9 +43,9 @@ public class ObstaculoScript : MonoBehaviour
             else if (gameObject.tag == "Moneda")
             {
                 efect.Play();
-                CanvasController.Score += 10;
+                CanvasController.Score += 100;
                 gameObject.SetActive(false);
-                Invoke("ActivarObjeto", 2);
+                //Invoke("ActivarObjeto", 2);
                 particulaCarga.Play();
 
             }

@@ -29,13 +29,13 @@ public class stopCar : MonoBehaviour
             enter = true;
             if (score)
             {
-                CanvasController.Score += 100;
+                CanvasController.Score += 200;
                 particulaCarga.Play();
                 audioE.Play();
             }
             if (scoreN)
             {
-                CanvasController.Score -= 100;
+                CanvasController.Score -= 300;
             }
             if (critical)
             {
