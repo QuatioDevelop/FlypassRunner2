@@ -43,7 +43,7 @@ public class CanvasOpciones : MonoBehaviour
             }
         }*/
 
-        if (Input.GetKeyDown(KeyCode.R) && Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKey(KeyCode.R) && Input.GetKey(KeyCode.A))
         {
             SceneManager.LoadScene(4);
         }
