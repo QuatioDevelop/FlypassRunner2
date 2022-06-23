@@ -97,7 +97,7 @@ public class PatternSystem : MonoBehaviour
     public List<SetItem> patternItem = new List<SetItem>();
     private int[] amountBuildingSpawn;
     private int[] amountItemSpawn;
-    private int amountFloorSpawn = 32;
+    private int amountFloorSpawn = 8;
     private float nextPosFloor = 32;
     public bool loadingComplete;
     public float loadingPercent;
