@@ -6,6 +6,7 @@ using System;
 [Serializable]
 public class RankData : MonoBehaviour
 {
+    public string pos;
     public string name;
     public string document;
     public float score;
@@ -13,6 +14,7 @@ public class RankData : MonoBehaviour
 
     public RankData()
     {
+        pos = "1";
         name = "Dummi";
         document = "0123456789";
         score = 10f;

@@ -90,7 +90,7 @@ public class SaveRank : MonoBehaviour
 
     public void save()
     {
-        string datatosave = "";
+        /*string datatosave = "";
 
         for (int i = 0; i < sortstringscores.Length; i++)
         {
@@ -100,16 +100,19 @@ public class SaveRank : MonoBehaviour
             rankData.email = sortstringemails[i];
 
             datatosave += JsonUtility.ToJson(rankData);
-
-            /*if (i < sortstringscores.Length - 1)
-            {
-                datatosave += ",";
-            }*/
         }
-        //datatosave += "}";
 
         string path = Path.Combine(Application.persistentDataPath, "rank.csv");
+        File.WriteAllText(path, datatosave);*/
 
-        File.WriteAllText(path, datatosave);
+        string path = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Desktop), "RankingFlyPassRunner.csv");
+        TextWriter tw = new StreamWriter(path, false);
+        tw.WriteLine("#, Nombre, Documento, Puntos, Correo");
+
+        for (int i = 0; i < sortstringscores.Length; i++)
+        {
+            tw.WriteLine((i + 1).ToString() + ".," + sortstringnames[i] + "," + sortstringdocs[i] + "," + float.Parse(sortstringscores[i]) + "," + sortstringemails[i]);
+        }
+        tw.Close();
     }
 }
