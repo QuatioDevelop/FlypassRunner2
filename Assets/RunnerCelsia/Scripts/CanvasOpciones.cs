@@ -11,10 +11,14 @@ public class CanvasOpciones : MonoBehaviour
     public Slider Sen;
     public TextMeshProUGUI sensText;
     public TMP_InputField liveMax;
+    public TMP_InputField liveExtText;
+    public TMP_InputField tiempoLimiteExt;
 
     public static int tiempo = 180;
     public static int live = 3;
     public static float sens = 1;
+    public static int liveExt = 3;
+    public static int tiempoExt = 30;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +28,13 @@ public class CanvasOpciones : MonoBehaviour
         tiempoLimite.text = PlayerPrefs.GetInt("tiempo", 180).ToString();
         liveMax.text = PlayerPrefs.GetInt("vida", 5).ToString();
         Sen.value = PlayerPrefs.GetFloat("sen",1);
+        tiempo = PlayerPrefs.GetInt("tiempo", 180);
+        live = PlayerPrefs.GetInt("vida", 5);
+        sens = PlayerPrefs.GetFloat("sen", 1);
+        liveExtText.text = PlayerPrefs.GetInt("vidaExt", 3).ToString();
+        tiempoLimiteExt.text = PlayerPrefs.GetInt("tiempoExt", 30).ToString();
+        liveExt = PlayerPrefs.GetInt("vidaExt", 3);
+        tiempoExt = PlayerPrefs.GetInt("tiempoExt", 30);
     }
 
     private void Update()
@@ -53,9 +64,13 @@ public class CanvasOpciones : MonoBehaviour
     {
         int.TryParse(tiempoLimite.text, out tiempo);
         int.TryParse(liveMax.text, out live);
+        int.TryParse(tiempoLimiteExt.text, out tiempoExt);
+        int.TryParse(liveExtText.text, out liveExt);
         PlayerPrefs.SetInt("tiempo", tiempo);
         PlayerPrefs.SetInt("vida", live);
         PlayerPrefs.SetFloat("sen", Sen.value);
+        PlayerPrefs.SetInt("tiempoExt", tiempoExt);
+        PlayerPrefs.SetInt("vidaExt", liveExt);
         CanvasOpciones2.MaxVel = PlayerPrefs.GetInt("MaxVel", 50);
         CanvasOpciones2.VarVel = PlayerPrefs.GetFloat("VarVel", 0.2f);
         sens = Sen.value;

@@ -16,6 +16,7 @@ public class CanvasOpciones2 : MonoBehaviour
     public static int MaxVel = 50;
     public static float VarVel = 0.2f;
     public static int  Div = 5;
+    public static int Dist = 800;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +25,9 @@ public class CanvasOpciones2 : MonoBehaviour
         MaxVelText.text = PlayerPrefs.GetInt("MaxVel", 50).ToString();
         VarVelText.text = PlayerPrefs.GetFloat("VarVel", 0.2f).ToString();
         DivText.text = PlayerPrefs.GetInt("Div", 5).ToString();
+        MaxVel = PlayerPrefs.GetInt("MaxVel", 50);
+        VarVel = PlayerPrefs.GetFloat("VarVel", 0.2f);
+        Div = PlayerPrefs.GetInt("Div", 5);
 
     }
 
@@ -60,6 +64,14 @@ public class CanvasOpciones2 : MonoBehaviour
     public void Clearplayerprefs()
     {
         PlayerPrefs.DeleteAll();
+        PlayerPrefs.SetInt("MaxVel", MaxVel);
+        PlayerPrefs.SetInt("Div", Div);
+        PlayerPrefs.SetFloat("VarVel", VarVel);
+        PlayerPrefs.SetInt("tiempo", CanvasOpciones.tiempo);
+        PlayerPrefs.SetInt("vida", CanvasOpciones.live);
+        PlayerPrefs.SetFloat("sen", CanvasOpciones.sens);
+        PlayerPrefs.SetInt("tiempoExt", CanvasOpciones.tiempoExt);
+        PlayerPrefs.SetInt("vidaExt", CanvasOpciones.liveExt);
     }
 }
 

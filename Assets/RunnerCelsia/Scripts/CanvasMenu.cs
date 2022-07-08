@@ -42,10 +42,10 @@ public class CanvasMenu : MonoBehaviour
     private void Start()
     {
         textoTiempo.text = "Tiempo: " + (CanvasController.tiempo).ToString("00");
-        textoPuntaje.text = "Puntaje: " + (CanvasController.Score).ToString("00");
+        textoPuntaje.text = "Puntaje: " + (CanvasController.Score).ToString("00.0000");
         textoVida.text = "Vidas: " + (CanvasController.vida).ToString("00");
 
-        if (!PlayerPrefs.HasKey("count"))
+        if (!PlayerPrefs.HasKey("count") && !CanvasForm.anon)
         {
             countRecords = 1;
             Debug.Log("countRecords:" + countRecords);
@@ -67,7 +67,7 @@ public class CanvasMenu : MonoBehaviour
 
             for (int j = 1; j <= countRecords; j++)
             {
-                if (PlayerPrefs.HasKey("Cedula" + j))
+                if (PlayerPrefs.HasKey("Cedula" + j) && !CanvasForm.anon)
                 {
                     if (PlayerPrefs.GetString("Cedula" + j) == CanvasForm.tCedula.ToString())
                     {
@@ -82,7 +82,7 @@ public class CanvasMenu : MonoBehaviour
                 }
             }
 
-            if (usernotexist)
+            if (usernotexist && !CanvasForm.anon)
             {
                 countRecords++;
                 PlayerPrefs.SetInt("count", countRecords);

@@ -25,6 +25,7 @@ public class ObstaculoScript : MonoBehaviour
         {
             if ((this.transform.localPosition.z) >= ((160 * (i + 1)) - 35) && (this.transform.localPosition.z) <= ((160 * (i + 1)) + 35))
             {
+                //Destroy(this.gameObject);
                 this.gameObject.SetActive(false);
             }
         }
@@ -45,7 +46,18 @@ public class ObstaculoScript : MonoBehaviour
                 efect.Play();
                 CanvasController.Score += 100;
                 gameObject.SetActive(false);
-                //Invoke("ActivarObjeto", 2);
+                Invoke("ActivarObjeto", 2);
+                particulaCarga.Play();
+
+            }
+            else if (gameObject.tag == "LiveExtra")
+            {
+                efect.Play();
+                CanvasController.Score += 50;
+                CanvasController.tiempo += CanvasOpciones.tiempoExt;
+                CanvasController.vida += CanvasOpciones.liveExt;
+                gameObject.SetActive(false);
+                Invoke("ActivarObjeto", 2);
                 particulaCarga.Play();
 
             }
@@ -68,6 +80,5 @@ public class ObstaculoScript : MonoBehaviour
     public void ActivarObjeto()
     {
         gameObject.SetActive(true);
-
     }
 }

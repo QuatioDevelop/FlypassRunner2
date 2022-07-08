@@ -16,6 +16,8 @@ public class CanvasForm : MonoBehaviour
     public static string tCedula;
     public static string tCorreo;
 
+    public static bool anon = false;
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.F1))
@@ -24,11 +26,14 @@ public class CanvasForm : MonoBehaviour
 
     public void Comenzar()
     {
+        Debug.Log("Start");
         if (nombre.text != "" && cedula.text != "" && correo.text != "")
         {
+            Debug.Log("Start 2");
             tNombre = nombre.text;
             tCedula = cedula.text;
             tCorreo = correo.text;
+            anon = false;
             SceneManager.LoadScene(2);
         }
         else
@@ -42,5 +47,14 @@ public class CanvasForm : MonoBehaviour
     {
         yield return new WaitForSeconds(2);
         alerta.text = "";
+    }
+
+    public void ComenzarAnonimo()
+    {
+        tNombre = "Anonimo";
+        tCedula = "0000";
+        tCorreo = "Anonimo";
+        anon = true;
+        SceneManager.LoadScene(2);
     }
 }
