@@ -39,8 +39,8 @@ public class tollgenerate : MonoBehaviour
     Vector3 x1_2 = new Vector3(-1.2f, 0, 52);
     Vector3 x2_2 = new Vector3(1.2f, 0, 52);
 
-    Vector3 x1_3 = new Vector3(-1.2f, 0, 482);
-    Vector3 x2_3 = new Vector3(1.2f, 0, 482);
+    Vector3 x1_3 = new Vector3(-1.2f, 0, 130);
+    Vector3 x2_3 = new Vector3(1.2f, 0, 130);
 
     float x = 1;
     float y = 1;
@@ -57,11 +57,15 @@ public class tollgenerate : MonoBehaviour
     int e = 0;
     int r = 0;
 
+    bool coin = true;
+    bool barr = true;
+    bool coinp = true;
+    bool tolls = true;
+
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        cantidad = CanvasOpciones.tiempo / CanvasOpciones2.Div;
 
         while (x <= CanvasOpciones2.Dist)
         {
@@ -88,6 +92,13 @@ public class tollgenerate : MonoBehaviour
                 barr.transform.position = new Vector3(x2.x, x2.y, x2.z * (j));
             }
             lastBarr = barr;
+            for (int i = 0; i < GenTolls.transform.childCount; i++)
+            {
+                if ((lastBarr.transform.localPosition.z) >= (GenTolls.transform.GetChild(i).gameObject.transform.position.z - 35) && (lastBarr.transform.localPosition.z) <= (GenTolls.transform.GetChild(i).gameObject.transform.position.z + 35))
+                {
+                    barr.SetActive(false);
+                }
+            }
             y = lastBarr.transform.position.z;
         }
 
@@ -129,20 +140,29 @@ public class tollgenerate : MonoBehaviour
 
         endStart = true;
     }
+
+    void Start()
+    {
+        lasttoll = GenTolls.transform.GetChild(i / 2).gameObject;
+    }
+
     void Update()
     {
-        if (endStart)
+        if (player.transform.position.z >= (lasttoll.transform.position.z) && endStart)
         {
-            distance = Vector3.Distance(player.transform.position, lasttoll.transform.position);
-            print(distance + "Distancia para iniciar la pool");
-        }
-        if (distance <= (lasttoll.transform.position.z / 2) && endStart)
-        {
-            StartCoroutine(pool());
-            StartCoroutine(poolBarr());
-            StartCoroutine(poolCoin());
-            StartCoroutine(poolCoinP());
-            endStart = false;
+            
+            if(tolls && coin && coinp && barr)
+            {
+                StartCoroutine(pool());
+                StartCoroutine(poolBarr());
+                StartCoroutine(poolCoin());
+                StartCoroutine(poolCoinP());
+                tolls = false;
+                barr = false;
+                coin = false;
+                coinp = false;
+                endStart = false;
+            }
         }
     }
 
@@ -159,11 +179,24 @@ public class tollgenerate : MonoBehaviour
 
         if (q == i)
         {
+            tolls = true;
             q = 0;
+            lasttoll = GenTolls.transform.GetChild(i/2).gameObject;
+            endStart = true;
         }
 
-        yield return new WaitForSeconds(15f);
-        StartCoroutine(pool());
+        if (q == i/2)
+        {
+            tolls = true;     
+            lasttoll = GenTolls.transform.GetChild(GenTolls.transform.childCount - 1).gameObject;
+            endStart = true;
+        }
+
+        yield return new WaitForSeconds(0.1f);
+        if (!tolls)
+        {
+            StartCoroutine(pool());
+        }
     }
 
     IEnumerator poolBarr()
@@ -171,19 +204,36 @@ public class tollgenerate : MonoBehaviour
 
         if (GenBarr.transform.GetChild(w))
         {
+            GenBarr.transform.GetChild(w).gameObject.SetActive(true);
             Vector3 Barr = GenBarr.transform.GetChild(GenBarr.transform.childCount - 1).gameObject.transform.position;
-            GenBarr.transform.GetChild(e).gameObject.transform.position = new Vector3(Barr.x, Barr.y, Barr.z + (x1.z * (w + 1)));
+            GenBarr.transform.GetChild(w).gameObject.transform.position = new Vector3(Barr.x, Barr.y, Barr.z + (x1.z * (w + 1)));
             print(w + " Barr " + j);
+            for (int i = 0; i < GenTolls.transform.childCount; i++)
+            {
+                if ((GenBarr.transform.GetChild(w).gameObject.transform.position.z) >= (GenTolls.transform.GetChild(i).gameObject.transform.position.z - 35) && (GenBarr.transform.GetChild(w).gameObject.transform.position.z) <= (GenTolls.transform.GetChild(i).gameObject.transform.position.z + 35))
+                {
+                    GenBarr.transform.GetChild(w).gameObject.SetActive(false);
+                }
+            }
             w++;
         }
 
         if (w == j)
         {
             w = 0;
+            barr = true;
         }
 
-        yield return new WaitForSeconds(1f);
-        StartCoroutine(poolBarr());
+        if(w == j / 2)
+        {
+            barr = true;
+        }
+
+        yield return new WaitForSeconds(0.1f);
+        if (!barr)
+        {
+            StartCoroutine(poolBarr());
+        }
     }
 
     IEnumerator poolCoin()
@@ -200,10 +250,19 @@ public class tollgenerate : MonoBehaviour
         if (e == k)
         {
             e = 0;
+            coin = true;
         }
 
-        yield return new WaitForSeconds(3f);
-        StartCoroutine(poolCoin());
+        if (e == k/2)
+        {
+            coin = true;
+        }
+
+        yield return new WaitForSeconds(0.1f);
+        if (!coin)
+        {
+            StartCoroutine(poolCoin());
+        }
     }
 
     IEnumerator poolCoinP()
@@ -219,9 +278,18 @@ public class tollgenerate : MonoBehaviour
         if (r == l)
         {
             r = 0;
+            coinp = true;
         }
 
-        yield return new WaitForSeconds(45f);
-        StartCoroutine(poolCoinP());
+        if (r == l/2)
+        {
+            coinp = true;
+        }
+
+        yield return new WaitForSeconds(0.1f);
+        if (!coinp)
+        {
+            StartCoroutine(poolCoinP());
+        }
     }
 }

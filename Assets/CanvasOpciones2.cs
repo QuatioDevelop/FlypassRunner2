@@ -11,11 +11,10 @@ public class CanvasOpciones2 : MonoBehaviour
    
     public TMP_InputField VarVelText;
 
-    public TMP_InputField DivText;
+    public TMP_InputField DisText;
 
     public static int MaxVel = 50;
     public static float VarVel = 0.2f;
-    public static int  Div = 5;
     public static int Dist = 800;
 
     // Start is called before the first frame update
@@ -24,10 +23,10 @@ public class CanvasOpciones2 : MonoBehaviour
         //tiempoLimite = gameObject.GetComponentInChildren<TMP_InputField>();
         MaxVelText.text = PlayerPrefs.GetInt("MaxVel", 50).ToString();
         VarVelText.text = PlayerPrefs.GetFloat("VarVel", 0.2f).ToString();
-        DivText.text = PlayerPrefs.GetInt("Div", 5).ToString();
+        DisText.text = PlayerPrefs.GetInt("Dis", 800).ToString();
         MaxVel = PlayerPrefs.GetInt("MaxVel", 50);
         VarVel = PlayerPrefs.GetFloat("VarVel", 0.2f);
-        Div = PlayerPrefs.GetInt("Div", 5);
+        Dist = PlayerPrefs.GetInt("Dis", 800);
 
     }
 
@@ -49,9 +48,9 @@ public class CanvasOpciones2 : MonoBehaviour
     {
         MaxVel = int.Parse(MaxVelText.text);
         VarVel = float.Parse(VarVelText.text);
-        Div = int.Parse(DivText.text);
+        Dist = int.Parse(DisText.text);
         PlayerPrefs.SetInt("MaxVel", MaxVel);
-        PlayerPrefs.SetInt("Div", Div);
+        PlayerPrefs.SetInt("Dis", Dist);
         PlayerPrefs.SetFloat("VarVel", VarVel);
         SceneManager.LoadScene(0);
     }
@@ -65,7 +64,7 @@ public class CanvasOpciones2 : MonoBehaviour
     {
         PlayerPrefs.DeleteAll();
         PlayerPrefs.SetInt("MaxVel", MaxVel);
-        PlayerPrefs.SetInt("Div", Div);
+        PlayerPrefs.SetInt("Dis", Dist);
         PlayerPrefs.SetFloat("VarVel", VarVel);
         PlayerPrefs.SetInt("tiempo", CanvasOpciones.tiempo);
         PlayerPrefs.SetInt("vida", CanvasOpciones.live);

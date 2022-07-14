@@ -21,14 +21,14 @@ public class ObstaculoScript : MonoBehaviour
         efectD = GameObject.FindGameObjectWithTag("DamageSound").GetComponent<AudioSource>();
         audioCarga = gameObject.GetComponentInChildren<AudioSource>();
 
-        for (int i = 0; i < (tollgenerate.cantidad * 5); i++)
+        /*for (int i = 0; i < (tollgenerate.cantidad * 5); i++)
         {
             if ((this.transform.localPosition.z) >= ((160 * (i + 1)) - 35) && (this.transform.localPosition.z) <= ((160 * (i + 1)) + 35))
             {
                 //Destroy(this.gameObject);
                 this.gameObject.SetActive(false);
             }
-        }
+        }*/
     }
 
     public void OnTriggerEnter(Collider other)
