@@ -39,8 +39,8 @@ public class tollgenerate : MonoBehaviour
     Vector3 x1_2 = new Vector3(-1.2f, 0, 52);
     Vector3 x2_2 = new Vector3(1.2f, 0, 52);
 
-    Vector3 x1_3 = new Vector3(-1.2f, 0, 130);
-    Vector3 x2_3 = new Vector3(1.2f, 0, 130);
+    Vector3 x1_3 = new Vector3(-1.2f, 0, 400);
+    Vector3 x2_3 = new Vector3(1.2f, 0, 400);
 
     float x = 1;
     float y = 1;
@@ -148,7 +148,7 @@ public class tollgenerate : MonoBehaviour
 
     void Update()
     {
-        if (player.transform.position.z >= (lasttoll.transform.position.z) && endStart)
+        if (player.transform.position.z >= ((lasttoll.transform.position.z)) && endStart)
         {
             
             if(tolls && coin && coinp && barr)
@@ -206,7 +206,16 @@ public class tollgenerate : MonoBehaviour
         {
             GenBarr.transform.GetChild(w).gameObject.SetActive(true);
             Vector3 Barr = GenBarr.transform.GetChild(GenBarr.transform.childCount - 1).gameObject.transform.position;
-            GenBarr.transform.GetChild(w).gameObject.transform.position = new Vector3(Barr.x, Barr.y, Barr.z + (x1.z * (w + 1)));
+            select2 = (int)Random.Range(0, 2);
+            if (select2 == 1) 
+            {
+                GenBarr.transform.GetChild(w).gameObject.transform.position = new Vector3(x1.x, Barr.y, Barr.z + (x1.z * (w + 1)));
+            }
+            else
+            {
+                GenBarr.transform.GetChild(w).gameObject.transform.position = new Vector3(x2.x, Barr.y, Barr.z + (x1.z * (w + 1)));
+            }
+
             print(w + " Barr " + j);
             for (int i = 0; i < GenTolls.transform.childCount; i++)
             {
@@ -229,7 +238,7 @@ public class tollgenerate : MonoBehaviour
             barr = true;
         }
 
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.001f);
         if (!barr)
         {
             StartCoroutine(poolBarr());

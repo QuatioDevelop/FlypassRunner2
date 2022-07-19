@@ -15,7 +15,7 @@ public class CanvasOpciones2 : MonoBehaviour
 
     public static int MaxVel = 50;
     public static float VarVel = 0.2f;
-    public static int Dist = 800;
+    public static int Dist = 1600;
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +26,7 @@ public class CanvasOpciones2 : MonoBehaviour
         DisText.text = PlayerPrefs.GetInt("Dis", 800).ToString();
         MaxVel = PlayerPrefs.GetInt("MaxVel", 50);
         VarVel = PlayerPrefs.GetFloat("VarVel", 0.2f);
-        Dist = PlayerPrefs.GetInt("Dis", 800);
+        Dist = PlayerPrefs.GetInt("Dis", 1600);
 
     }
 
