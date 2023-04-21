@@ -120,7 +120,7 @@ public class tollgenerate : MonoBehaviour
             z = lastMarkCoin.transform.position.z;
         }
 
-        while (a <= CanvasOpciones2.Dist)
+        /*while (a <= CanvasOpciones2.Dist)
         {
             l++;
             select4 = (int)Random.Range(0, 2);
@@ -136,7 +136,7 @@ public class tollgenerate : MonoBehaviour
             }
             lastMarkCoinP = CoinP;
             a = lastMarkCoinP.transform.position.z;
-        }
+        }*/
 
         endStart = true;
     }
@@ -156,7 +156,7 @@ public class tollgenerate : MonoBehaviour
                 StartCoroutine(pool());
                 StartCoroutine(poolBarr());
                 StartCoroutine(poolCoin());
-                StartCoroutine(poolCoinP());
+                //StartCoroutine(poolCoinP());
                 tolls = false;
                 barr = false;
                 coin = false;

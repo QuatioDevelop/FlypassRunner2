@@ -85,7 +85,7 @@ public class PlayerController : MonoBehaviour
             player.transform.Translate(0, 0, ((x * speedX) * Time.deltaTime));
         }
 
-        player.transform.eulerAngles = new Vector3(0,x * y + 90, 0);
+        player.transform.eulerAngles = new Vector3(0,((x * y)/4) + 90, 0);
         
         if(player.transform.position.y != 0.055f)
         {

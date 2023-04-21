@@ -35,7 +35,7 @@ public class MovPlayer : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         speed = 5;
         stop = true;
-        cam.transform.position = new Vector3(cam.position.x, cam.position.y, player.transform.position.z - 2.57f);
+        cam.transform.position = new Vector3(cam.position.x, cam.position.y, player.transform.position.z - 3.57f);
         Debug.Log("La Velocidad Maxima es " + CanvasOpciones2.MaxVel);
         Debug.Log("La Velocidad Varible es " + CanvasOpciones2.VarVel);
 
@@ -67,7 +67,7 @@ public class MovPlayer : MonoBehaviour
             }
             //print(speed + "Velocity");
             m_Rigidbody.velocity = new Vector3(0, 0, speed);
-            cam.transform.position = new Vector3(cam.position.x,cam.position.y, player.transform.position.z - 2.57f);
+            cam.transform.position = new Vector3(cam.position.x, cam.position.y, player.transform.position.z - 3.57f);
             rot.z += (speed*6);
             rot.y = 90;
             if (wheel1) wheel1.eulerAngles    = rot;
