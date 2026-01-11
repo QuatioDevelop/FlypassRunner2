@@ -6,6 +6,7 @@
 using System;
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 [ExecuteInEditMode]
 public class GUIManager : MonoBehaviour
@@ -29,8 +30,8 @@ public class GUIManager : MonoBehaviour
     {
         public string name;
         public Item.TypeItem itemType;
-        public GUITexture guiTexture;
-        public GUIText guiText;
+        public Image guiImage;
+        public Text guiText;
         public Color colorText;
         public float x, y, sizeX, sizeY;
     }
@@ -41,9 +42,10 @@ public class GUIManager : MonoBehaviour
     {
         public string name;
         public ButtonType buttonType;
-        public GUITexture guiTexture;
-        public Texture2D buttonNormal;
-        public Texture2D buttonActive;
+        public Image guiImage;
+        public Button guiButton;
+        public Sprite buttonNormal;
+        public Sprite buttonActive;
         public float x, y, sizeX, sizeY;
     }
 
@@ -53,14 +55,14 @@ public class GUIManager : MonoBehaviour
     public class GroupGUIScore
     {
         public string name;
-        public GUITexture guiTexture;
+        public Image guiImage;
         public float x, y, sizeX, sizeY;
     }
 
 
 
     public bool isPreview; //set to preview GUI
-    public GUIText[] guiText;
+    public Text[] guiText;
     public List<RectGroup> positionSet = new List<RectGroup>();
     public List<GroupGUITexture> itemStateSet = new List<GroupGUITexture>();
     public List<GroupGUIButton> menuButtonSet = new List<GroupGUIButton>();
@@ -90,28 +92,25 @@ public class GUIManager : MonoBehaviour
             {
                 if (isPreview)
                 {
-                    itemStateSet[i].guiTexture.enabled = true;
-                    itemStateSet[i].guiText.enabled = true;
+                    itemStateSet[i].guiImage.enabled = true;
+                    itemStateSet[i].guiText.gameObject.SetActive(true);
                     if (itemStateSet[i].itemType == Item.TypeItem.ItemMagnet)
                     {
                         ShowGUI(i, 1);
                     }
-
                     if (itemStateSet[i].itemType == Item.TypeItem.ItemMultiply)
                     {
                         ShowGUI(i, 1);
                     }
-
                     if (itemStateSet[i].itemType == Item.TypeItem.ItemSprint)
                     {
                         ShowGUI(i, 1);
                     }
-
                 }
                 else
                 {
-                    itemStateSet[i].guiTexture.enabled = false;
-                    itemStateSet[i].guiText.enabled = false;
+                    itemStateSet[i].guiImage.enabled = false;
+                    itemStateSet[i].guiText.gameObject.SetActive(false);
                 }
             }
 
@@ -119,13 +118,12 @@ public class GUIManager : MonoBehaviour
             {
                 if (isPreview)
                 {
-                    menuButtonSet[i].guiTexture.enabled = true;
+                    menuButtonSet[i].guiImage.enabled = true;
                     ShowGUIButton(i);
-
                 }
                 else
                 {
-                    menuButtonSet[i].guiTexture.enabled = false;
+                    menuButtonSet[i].guiImage.enabled = false;
                 }
             }
 
@@ -133,12 +131,12 @@ public class GUIManager : MonoBehaviour
             {
                 if (isPreview)
                 {
-                    scoreSet[i].guiTexture.enabled = true;
+                    scoreSet[i].guiImage.enabled = true;
                     ShowGUIScore(i);
                 }
                 else
                 {
-                    scoreSet[i].guiTexture.enabled = false;
+                    scoreSet[i].guiImage.enabled = false;
                 }
             }
 
@@ -149,10 +147,10 @@ public class GUIManager : MonoBehaviour
             {
                 for (int i = 0; i < guiText.Length; i++)
                 {
-                    guiText[i].enabled = true;
-                    guiText[i].pixelOffset = new Vector2(GUI_Calculate.RectWithScrren_WidthAndHeight_Sizeheight(new Vector2(positionSet[i].x, positionSet[i].y),
+                    guiText[i].gameObject.SetActive(true);
+                    guiText[i].rectTransform.anchoredPosition = new Vector2(GUI_Calculate.RectWithScrren_WidthAndHeight_Sizeheight(new Vector2(positionSet[i].x, positionSet[i].y),
                                                                                                                 new Vector2(positionSet[i].sizeX, positionSet[i].sizeY)).x,
-                                                        GUI_Calculate.RectWithScrren_WidthAndHeight_Sizeheight(new Vector2(positionSet[i].x, positionSet[i].y),
+                                                GUI_Calculate.RectWithScrren_WidthAndHeight_Sizeheight(new Vector2(positionSet[i].x, positionSet[i].y),
                                                                                                                 new Vector2(positionSet[i].sizeX, positionSet[i].sizeY)).y);
                     guiText[i].fontSize = GUI_Calculate.FontSize((int)positionSet[i].sizeX);
                     if (positionSet[i].name == "Distance")
@@ -169,7 +167,7 @@ public class GUIManager : MonoBehaviour
 
                 for (int i = 0; i < scoreSet.Count; i++)
                 {
-                    scoreSet[i].guiTexture.enabled = true;
+                    scoreSet[i].guiImage.enabled = true;
                     ShowGUIScore(i);
                 }
 
@@ -181,44 +179,42 @@ public class GUIManager : MonoBehaviour
                         {
                             if (Controller.instance.timeMagnet > 0)
                             {
-                                itemStateSet[i].guiTexture.enabled = true;
-                                itemStateSet[i].guiText.enabled = true;
+                                itemStateSet[i].guiImage.enabled = true;
+                                itemStateSet[i].guiText.gameObject.SetActive(true);
                                 ShowGUI(i, Controller.instance.timeMagnet);
                             }
                             else
                             {
-                                itemStateSet[i].guiTexture.enabled = false;
-                                itemStateSet[i].guiText.enabled = false;
+                                itemStateSet[i].guiImage.enabled = false;
+                                itemStateSet[i].guiText.gameObject.SetActive(false);
                             }
                         }
-
                         if (itemStateSet[i].itemType == Item.TypeItem.ItemMultiply)
                         {
                             if (Controller.instance.timeMultiply > 0)
                             {
-                                itemStateSet[i].guiTexture.enabled = true;
-                                itemStateSet[i].guiText.enabled = true;
+                                itemStateSet[i].guiImage.enabled = true;
+                                itemStateSet[i].guiText.gameObject.SetActive(true);
                                 ShowGUI(i, Controller.instance.timeMultiply);
                             }
                             else
                             {
-                                itemStateSet[i].guiTexture.enabled = false;
-                                itemStateSet[i].guiText.enabled = false;
+                                itemStateSet[i].guiImage.enabled = false;
+                                itemStateSet[i].guiText.gameObject.SetActive(false);
                             }
                         }
-
                         if (itemStateSet[i].itemType == Item.TypeItem.ItemSprint)
                         {
                             if (Controller.instance.timeSprint > 0)
                             {
-                                itemStateSet[i].guiTexture.enabled = true;
-                                itemStateSet[i].guiText.enabled = true;
+                                itemStateSet[i].guiImage.enabled = true;
+                                itemStateSet[i].guiText.gameObject.SetActive(true);
                                 ShowGUI(i, Controller.instance.timeSprint);
                             }
                             else
                             {
-                                itemStateSet[i].guiTexture.enabled = false;
-                                itemStateSet[i].guiText.enabled = false;
+                                itemStateSet[i].guiImage.enabled = false;
+                                itemStateSet[i].guiText.gameObject.SetActive(false);
                             }
                         }
                     }
@@ -232,23 +228,7 @@ public class GUIManager : MonoBehaviour
                 {
                     ShowGUIButton(i);
                     CheckTypeButtonActive(i);
-                    if (menuButtonSet[i].guiTexture.HitTest(Input.mousePosition))
-                    {
-                        if (Input.GetMouseButtonDown(0))
-                        {
-                            menuButtonSet[i].guiTexture.texture = menuButtonSet[i].buttonActive;
-                        }
-
-                        if (Input.GetMouseButtonUp(0))
-                        {
-                            menuButtonSet[i].guiTexture.texture = menuButtonSet[i].buttonNormal;
-                            CheckTypeButtonAction(i);
-                        }
-                    }
-                    else
-                    {
-                        menuButtonSet[i].guiTexture.texture = menuButtonSet[i].buttonNormal;
-                    }
+                    // La lógica de clic ahora se maneja con el evento onClick del Button
                 }
             }
             else
@@ -269,11 +249,11 @@ public class GUIManager : MonoBehaviour
         {
             if (GameAttribute.gameAttribute.pause == true)
             {
-                menuButtonSet[i].guiTexture.enabled = true;
+                menuButtonSet[i].guiImage.enabled = true;
             }
             else
             {
-                menuButtonSet[i].guiTexture.enabled = false;
+                menuButtonSet[i].guiImage.enabled = false;
 
             }
         }
@@ -282,11 +262,11 @@ public class GUIManager : MonoBehaviour
         {
             if (GameAttribute.gameAttribute.pause == false)
             {
-                menuButtonSet[i].guiTexture.enabled = true;
+                menuButtonSet[i].guiImage.enabled = true;
             }
             else
             {
-                menuButtonSet[i].guiTexture.enabled = false;
+                menuButtonSet[i].guiImage.enabled = false;
             }
         }
 
@@ -294,11 +274,11 @@ public class GUIManager : MonoBehaviour
         {
             if (GameAttribute.gameAttribute.pause == true)
             {
-                menuButtonSet[i].guiTexture.enabled = true;
+                menuButtonSet[i].guiImage.enabled = true;
             }
             else
             {
-                menuButtonSet[i].guiTexture.enabled = false;
+                menuButtonSet[i].guiImage.enabled = false;
             }
         }
 
@@ -306,11 +286,11 @@ public class GUIManager : MonoBehaviour
         {
             if (GameAttribute.gameAttribute.pause == true)
             {
-                menuButtonSet[i].guiTexture.enabled = true;
+                menuButtonSet[i].guiImage.enabled = true;
             }
             else
             {
-                menuButtonSet[i].guiTexture.enabled = false;
+                menuButtonSet[i].guiImage.enabled = false;
             }
         }
 
@@ -318,11 +298,11 @@ public class GUIManager : MonoBehaviour
         {
             if (GameAttribute.gameAttribute.life <= 0)
             {
-                menuButtonSet[i].guiTexture.enabled = true;
+                menuButtonSet[i].guiImage.enabled = true;
             }
             else
             {
-                menuButtonSet[i].guiTexture.enabled = false;
+                menuButtonSet[i].guiImage.enabled = false;
             }
         }
 
@@ -330,11 +310,11 @@ public class GUIManager : MonoBehaviour
         {
             if (GameAttribute.gameAttribute.life <= 0)
             {
-                menuButtonSet[i].guiTexture.enabled = true;
+                menuButtonSet[i].guiImage.enabled = true;
             }
             else
             {
-                menuButtonSet[i].guiTexture.enabled = false;
+                menuButtonSet[i].guiImage.enabled = false;
             }
         }
     }
@@ -342,7 +322,7 @@ public class GUIManager : MonoBehaviour
     //This method use to input command in button
     private void CheckTypeButtonAction(int i)
     {
-        if (menuButtonSet[i].guiTexture.enabled == true)
+        if (menuButtonSet[i].guiImage.enabled == true)
         {
             //exit button back to title
             if (menuButtonSet[i].buttonType == ButtonType.exit)
@@ -388,45 +368,45 @@ public class GUIManager : MonoBehaviour
 
     private void ShowGUI(int i, float time)
     {
-        if (itemStateSet[i].guiTexture != null)
+        if (itemStateSet[i].guiImage != null)
         {
-            itemStateSet[i].guiTexture.pixelInset = new Rect(calOnGUI.SetGUI(itemStateSet[i].x, itemStateSet[i].y, itemStateSet[i].sizeX, itemStateSet[i].sizeY));
+            // Puedes ajustar la posición usando rectTransform
+            itemStateSet[i].guiImage.rectTransform.anchoredPosition = new Vector2(itemStateSet[i].x, itemStateSet[i].y);
+            itemStateSet[i].guiImage.rectTransform.sizeDelta = new Vector2(itemStateSet[i].sizeX, itemStateSet[i].sizeY);
         }
         if (itemStateSet[i].guiText != null)
         {
-            itemStateSet[i].guiText.material.color = itemStateSet[i].colorText;
-            itemStateSet[i].guiText.pixelOffset = new Vector2(calOnGUI.SetGUI(itemStateSet[i].x, itemStateSet[i].y, itemStateSet[i].sizeX).x + (calOnGUI.SetGUI(itemStateSet[i].x, itemStateSet[i].y, itemStateSet[i].sizeX).width / 2),
-                                                            itemStateSet[i].guiTexture.pixelInset.y + (itemStateSet[i].guiTexture.pixelInset.height / 2));
+            itemStateSet[i].guiText.color = itemStateSet[i].colorText;
+            itemStateSet[i].guiText.rectTransform.anchoredPosition = new Vector2(itemStateSet[i].x, itemStateSet[i].y);
             itemStateSet[i].guiText.text = time.ToString("0") + "s";
         }
     }
     private void ShowGUIButton(int i)
     {
-        if (menuButtonSet[i].guiTexture != null)
+        if (menuButtonSet[i].guiImage != null)
         {
-            menuButtonSet[i].guiTexture.pixelInset = new Rect(calOnGUI.SetGUI(menuButtonSet[i].x, menuButtonSet[i].y, menuButtonSet[i].sizeX, menuButtonSet[i].sizeY));
+            menuButtonSet[i].guiImage.rectTransform.anchoredPosition = new Vector2(menuButtonSet[i].x, menuButtonSet[i].y);
+            menuButtonSet[i].guiImage.rectTransform.sizeDelta = new Vector2(menuButtonSet[i].sizeX, menuButtonSet[i].sizeY);
         }
     }
-
     private void ShowGUIScore(int i)
     {
-        if (scoreSet[i].guiTexture != null)
+        if (scoreSet[i].guiImage != null)
         {
-            scoreSet[i].guiTexture.pixelInset = new Rect(calOnGUI.SetGUI(scoreSet[i].x, scoreSet[i].y, scoreSet[i].sizeX, scoreSet[i].sizeY));
+            scoreSet[i].guiImage.rectTransform.anchoredPosition = new Vector2(scoreSet[i].x, scoreSet[i].y);
+            scoreSet[i].guiImage.rectTransform.sizeDelta = new Vector2(scoreSet[i].sizeX, scoreSet[i].sizeY);
         }
     }
-
     public void Reset()
     {
         for (int i = 0; i < menuButtonSet.Count; i++)
         {
-            menuButtonSet[i].guiTexture.enabled = false;
+            menuButtonSet[i].guiImage.enabled = false;
         }
-
         for (int i = 0; i < itemStateSet.Count; i++)
         {
-            itemStateSet[i].guiTexture.enabled = false;
-            itemStateSet[i].guiText.enabled = false;
+            itemStateSet[i].guiImage.enabled = false;
+            itemStateSet[i].guiText.gameObject.SetActive(false);
         }
     }
 }
